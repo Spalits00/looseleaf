@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>microCMS SDK</title>
+</head>
+
+<body>
+    <h1 id="text"></h1>
+</body>
+<script src="https://unpkg.com/microcms-js-sdk@latest/dist/umd/microcms-js-sdk.js"></script>
+<script>
+    const { createClient } = microcms;
+
+    const client = createClient({
+        serviceDomain: 'looseleaf', // service-domain は XXXX.microcms.io の XXXX 部分
+        apiKey: '164b742e5aa94a3eb662443c2d01052ead5e',
+    })
+    client.get({ endpoint: 'test' }).then((res) => {
+        document.querySelector('#text').textContent = res.test
+    })
+</script>
+
+</html>
